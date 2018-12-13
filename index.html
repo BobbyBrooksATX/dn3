@@ -1,110 +1,223 @@
-<!doctype html>
-<html lang="en-us" class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title>ARIA Tabs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-    <link rel="stylesheet" href="assets/css/tabs.css">
-    <link rel="stylesheet" href="assets/css/--demo--.css">
-  </head>
-  <body>
+<!DOCTYPE html>
 
-    <div class="page">
+<head>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/kpp3enn.css">
 
-      <header>
-        <h1>
-          Tab Widget tests
-        </h1>
+
+</head>
+<div class="container">
+
+  <h2>PICK YOUR METHOD:</h2>
+
+  <div class="dls-accordion" aria-live="polite">
+    <div class="dls-accordion__section">
+      <h3 class="dls-accordion__section-heading"><button class="dls-accordion__toggle yelp" aria-controls="accordion-content1"
+          aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="27" width="36">
+            <path d="M136.9 328c-1 .3-109.2 35.7-115.8 35.7-15.2-.9-18.5-16.2-19.9-31.2-1.5-14.2-1.4-29.8.3-46.8 1.9-18.8 5.5-45.1 24.2-44 4.8 0 67.1 25.9 112.7 44.4 17.1 6.8 18.6 35.8-1.5 41.9zm57.9-113.9c1.8 38.2-25.5 48.5-47.2 14.3L41.3 60.4c-1.5-6.6.3-12.4 5.3-17.4C62.2 26.5 146 3.2 168.1 8.9c7.5 1.9 12.1 6.1 13.8 12.6 1.3 8.3 11.5 167.4 12.9 192.6zm-1.4 164.8c0 4.6.2 116.4-1.7 121.5-2.3 6-7 9.7-14.3 11.2-10.1 1.7-27.1-1.9-51-10.7-22-8.1-56.7-21.5-49.3-42.5 2.8-6.9 51.4-62.8 77.3-93.6 12-15.2 39.8-5.5 39 14.1zm180.2-117.8c-5.6 3.7-110.8 28.2-118.1 30.6l.3-.6c-18.1 4.7-35.4-18.5-23.3-34.6 3.7-3.7 65.9-92.4 72.8-97 5.2-3.6 11.3-3.8 18.3-.6 18.4 8.8 55.1 63.1 57.4 84.6-.1 2.9 1.2 11.7-7.4 17.6zm10.1 130.7c-2.7 20.6-44.5 73.4-63.8 81-6.9 2.6-12.9 2-17.7-2-5-3.5-61.8-97.1-64.9-102.3-10.9-16.2 6.8-39.8 25.6-33.2 0 0 110.5 35.7 114.7 39.4 5.2 4.1 7.2 9.8 6.1 17.1z" /></svg>Give
+          'Em a Great Review. <svg class="dls-accordion__toggle-arrow dls-icon" role="presentation" viewBox="0 0 1 1">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
+          </svg></button></h3>
+      <div class="dls-accordion__content" id="accordion-content1" aria-hidden="false">
+        <p>Copy/paste this paragraph into Yelp, TripAdvisor, Facebook, Google or anywhere else people wax poetic about
+          their dining experiences. Don’t forget to fill in the blanks.</p>
+        <p>[Insert Establishment] is the best for two reasons:
+          1) their [Insert Favorite Menu Item] and 2) they haven’t sold out to big soda. They continue to sell Maine
+          Root, even though soft drink conglomerates would pay them stupid sums of money to serve fake craft soda or
+          high-fructose-corn-syrup-filled swill. That uncompromising commitment to quality, from their beverages to
+          their entrees, is why [Insert Establishment] is worth 5 STARS and so much more.
+          #StayRooted, [Insert Establishment].</p>
+      </div>
+    </div>
+    <div class="dls-accordion__section -closed">
+      <h3 class="dls-accordion__section-heading"><button class="dls-accordion__toggle" aria-controls="accordion-content2"
+          aria-expanded="false">Shoot 'Em an Email.<svg class="dls-accordion__toggle-arrow dls-icon" role="presentation"
+            viewBox="0 0 1 1">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
+          </svg></button></h3>
+      <div class="dls-accordion__content" id="accordion-content2" aria-hidden="true" tabindex="-1">
         <p>
-          Examples of different configurations to generate Tab Widgets.
-        </p>
+          <strong>Don’t worry, you’re not spamming them. Small business owners love that sh*t!</strong></p>
+        <p>SUBJECT LINE:<br />
+          Hey, [Insert Establishment]. Thanks for carrying Maine Root!</p>
+        <p>MESSAGE:<br />
+          Dearest [Establishment],
+          <p>My name is [Whatever You Go By], and I just wanted to say Thanks. Thanks for not compromising your quality
+            or integrity by letting some big soda company take over your fountain drinks. Your loyalty to Maine Root is
+            why I love you. (That and your [Insert your favorite menu item].)<br />
+            #StayRooted</p>
+          <p>[Whatever You Go By]</p>
+      </div>
+    </div>
+    <div class="dls-accordion__section -closed">
+      <h3 class="dls-accordion__section-heading"><button class="dls-accordion__toggle" aria-controls="accordion-content3"
+          aria-expanded="false">TAKE IT TO THE TWEETER. OR FACEBOOKS.OR THE INSTATHING. WHATEVER.<svg class="dls-accordion__toggle-arrow dls-icon"
+            role="presentation" viewBox="0 0 1 1">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
+          </svg></button></h3>
+      <div class="dls-accordion__content" id="accordion-content3" aria-hidden="true" tabindex="-1">
         <p>
-          Review
-          <a href="https://github.com/scottaohara/a11y_tab_widget">
-          the code on GitHub</a>.
+          <strong>Whether you have 1 follower or over 1 million, your social network needs to know which restaurants
+            #StayRooted.</strong>
         </p>
-      </header>
+        <p>SAMPLE POSTS:<br />
+          Quality food and @MaineRoot, that’s what [Insert Establishment] does! Thanks for not selling out to Big Soda!
+          #StayRooted</p>
+        <p> You can tell [Insert Establishment] cares about the quality of their food because they still serve
+          @MaineRoot. SO F’IN GOOD! #StayRooted</p>
 
-      <main>
-        <section>
-          <h2>Tab Widget Example</h2>
+        <p>If a restaurant stops serving @MaineRoot, they are dead to me. Don’t you die on me, [Insert Establishment].
+          #StayRooted.</p>
+      </div>
+    </div>
+    <div class="dls-accordion__section -closed">
+      <h3 class="dls-accordion__section-heading"><button class="dls-accordion__toggle" aria-controls="accordion-content4"
+          aria-expanded="false">GO OLD SCHOOL — TALK TO SOMEONE.</button>r<svg class="dls-accordion__toggle-arrow dls-icon"
+          role="presentation" viewBox="0 0 1 1">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
+        </svg></button></h3>
+      <div class="dls-accordion__content" id="accordion-content4" aria-hidden="true" tabindex="-1">
+        <p><strong>Next time you eat at an establishment that serves Maine Root, thank the owner, the manager, your
+            servers, the busboy, and while you’re at it, yourself.</strong></p>
 
-          <div data-atabs>
-            <section id="a" data-atabs-panel>
-              <h3 data-atabs-heading>
-                Apples
-              </h3>
-              <p>
-                No explicit default was set, so per standard functionality
-                this first <code>tabpanel</code> will be shown by default.
-              </p>
-              <p>
-                Here's a <a href="#">link just to test</a> keyboard tabbing.
-                (it's odd talking about <code>tab</code>s, and <kbd>tab</kbd>s.)
-              </p>
-            </section>
-            <section id="b" data-atabs-panel>
-              <h3 data-atabs-heading="keep">
-                Bananas
-              </h3>
-              <p data-atabs-heading>
-                This is an example of a heading being used to populate the
-                <code>tab</code>'s label, while also not removing heading
-                from the <code>tabpanel</code>.  This is done by adding
-                the value "keep" to <code>data-atabs-heading</code>.
-              </p>
-            </section>
-            <section id="c" data-atabs-panel data-atabs-tab-label="Oranges">
-              <h3>
-                There are two headings here
-              </h3>
-              <p>
-                The <code>tab</code> is getting its label from the
-                <code>data-atabs-tab-label</code>.  The heading is
-                kept in the <code>tabpanel</code> because it does
-                <b>not</b> have the <code>data-atabs-heading</code>
-                attribute.
-              </p>
-              <h4>It wouldn't make much sense</h4>
-              <p>
-                If the contents of a <code>tabpanel</code> contain
-                additional sub headings, it wouldn't make sense to remove
-                the initial heading from the <code>tabpanel</code>.
-                Doing so would create a gap in the heading structure.
-              </p>
-            </section>
-          </div>
-        </section>
+        <p><strong>CONVERSATION:</strong></p>
 
-        <section>
-          <h2>More demos</h2>
-          <ul>
-            <li><a href="tests/nested.html">Nested Tab Widgets</a></li>
-            <li><a href="tests/manual.html">Manually activated <code>tabpanel</code>s</a></li>
-            <li><a href="tests/inject-tabs-into-widget.html">Injected Tab Panels</a></li>
-            <li><a href="tests/vertical-orientation.html">Vertical Tab Widget</a></li>
-            <li><a href="tests/has-toc.html">No JS Table of Contents Sections</a></li>
-            <li><a href="tests/multiple-instances.html">Multiple Tab Widget Instances</a></li>
-            <li><a href="tests/windows-7-tabs.html">Windows 7 Tabs</a></li>
-          </ul>
-        </section>
+        <p>I have a message for your manager. [Dramatic Pause (Wait for their pupils to dilate)] Thanks. Thanks for
+          carrying Maine Root instead of selling out to a big soda company. Stay Rooted. Also, you have kind eyes.</p>
+      </div>
+    </div>
+  </div>
 
-      </main>
-    </div> <!-- /.page (demo layout) -->
 
-    <script src="index.js"></script>
-    <script>
-      var tabInstance = '[data-atabs]';
-      var els = document.querySelectorAll(tabInstance);
-      var allTabs = [];
+  <svg style="display: none">
+    <symbol viewBox="0 0 32 32" id="dropdown">
+      <title>dropdown</title>
+      <path d="M8 12l8.001 8L24 12z" fill="currentColor" fill-rule="evenodd" />
+    </symbol>
+  </svg>
 
-      // Generate all tab instances
-      for ( var i = 0; i < els.length; i++ ) {
-        var nTabs = new ARIAtabs( els[i] );
+  <script>
+    class Accordion {
 
-        allTabs.push(nTabs);
+      constructor(element) {
+        this.parent = element;
+        this.contentNodes = this.parent.querySelectorAll('.dls-accordion__content');
+        // convert nodelist to array
+        this.content = Array.prototype.slice.call(this.contentNodes);
+
+        // set panel height on instantiation
+        this.setHeight();
+
+        // click handler
+        this.parent.addEventListener('click', event => this.togglePanel(event));
+
+        // update panel height on resize
+        window.addEventListener('resize', function () {
+          this.updateHeight()
+        }.bind(this));
       }
-    </script>
-  </body>
-</html>
+
+      setHeight() {
+        this.parent.classList.add('-init');
+        this.content.forEach(function (panel) {
+          const section = panel.parentElement;
+          const isOpen = section.classList.contains('-open');
+          panel.removeAttribute('style');
+          section.classList.add('-open');
+          section.classList.remove('-closed');
+          panel.style = `height: ${panel.offsetHeight/16}rem;`; // + 4rem just coz...
+          if (!isOpen) {
+            section.classList.remove('-open');
+            section.classList.add('-closed');
+          }
+        });
+        setTimeout(() => {
+          this.parent.classList.remove('-init');
+        }, 0);
+      }
+
+      updateHeight() {
+        this.setHeight();
+      }
+
+      togglePanel(event) {
+
+        // exit if event has no target
+        if (!event.target) return;
+        // only run if a toggle is targeted
+        if (!event.target.classList.contains('dls-accordion__toggle')) return;
+
+        // get the panel id
+        const panelId = event.target.getAttribute('aria-controls');
+
+        // ***
+        // for unit testing:
+        // togglePanel() returns an array of objects
+        // containing the state attributes
+        // used in the unit tests, eg:
+        //
+        // expect(state[1].ariaHidden).to.equal('true');
+        //
+        // could there be a better way to do this?
+        // ***
+        const state = [];
+
+        this.content.forEach(function (panel) {
+
+          const section = panel.parentElement;
+          const toggle = section.querySelector('.dls-accordion__toggle');
+          const panelState = {
+            id: panel.id
+          };
+
+          // this block is pretty chunky - possibly some refactoring needed
+          if ((panel.id === panelId) && (panel.getAttribute('aria-hidden') === 'true')) {
+            section.classList.add('-open');
+            section.classList.remove('-closed');
+            panel.setAttribute('aria-hidden', 'false');
+            panel.removeAttribute('tabindex');
+            toggle.setAttribute('aria-expanded', 'true');
+
+            // fix scroll pos to visible viewport
+            const panelMoving = setInterval(() => {
+              if ((panel.offsetTop - 90) <= window.scrollY) {
+                panel.parentElement.parentElement.classList.add('-init');
+                window.scroll(0, panel.offsetTop - 90);
+              }
+            }, 30);
+
+            setTimeout(() => {
+              clearInterval(panelMoving);
+              panel.parentElement.parentElement.classList.remove('-init');
+            }, 300);
+
+          } else {
+            section.classList.remove('-open');
+            section.classList.add('-closed');
+            panel.setAttribute('aria-hidden', 'true');
+            panel.setAttribute('tabindex', '-1');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+
+          // populate state object for unit test
+          panelState.openClass = section.classList.contains('-open');
+          panelState.ariaHidden = panel.getAttribute('aria-hidden');
+          panelState.ariaExpanded = toggle.getAttribute('aria-expanded');
+          panelState.tabIndex = panel.getAttribute('tabindex');
+          state.push(panelState);
+        });
+
+        return state; // for unit test
+      }
+    }
+
+    const accordions = document.querySelectorAll('.dls-accordion');
+
+    if (accordions.length) {
+
+      accordions.forEach((i) => {
+        const accordion = new Accordion(i);
+      });
+
+    }
+  </script>
