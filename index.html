@@ -72,10 +72,10 @@
     </div>
     <div class="dls-accordion__section -closed">
       <h3 class="dls-accordion__section-heading"><button class="dls-accordion__toggle" aria-controls="accordion-content4"
-          aria-expanded="false">GO OLD SCHOOL — TALK TO SOMEONE.</button><svg class="dls-accordion__toggle-arrow dls-icon"
-          role="presentation" viewBox="0 0 1 1">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
-        </svg></button></h3>
+          aria-expanded="false">GO OLD SCHOOL <br />TALK TO SOMEONE.<svg class="dls-accordion__toggle-arrow dls-icon"
+            role="presentation" viewBox="0 0 1 1">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dropdown"></use>
+          </svg></button></h3>
       <div class="dls-accordion__content" id="accordion-content4" aria-hidden="true" tabindex="-1">
         <p><strong>Next time you eat at an establishment that serves Maine Root, thank the owner, the manager, your
             servers, the busboy, and while you’re at it, yourself.</strong></p>
@@ -87,137 +87,138 @@
       </div>
     </div>
   </div>
+</div>
 
 
-  <svg style="display: none">
-    <symbol viewBox="0 0 32 32" id="dropdown">
-      <title>dropdown</title>
-      <path d="M8 12l8.001 8L24 12z" fill="currentColor" fill-rule="evenodd" />
-    </symbol>
-  </svg>
+<svg style="display: none">
+  <symbol viewBox="0 0 32 32" id="dropdown">
+    <title>dropdown</title>
+    <path d="M8 12l8.001 8L24 12z" fill="currentColor" fill-rule="evenodd" />
+  </symbol>
+</svg>
 
-  <script>
-    class Accordion {
+<script>
+  class Accordion {
 
-      constructor(element) {
-        this.parent = element;
-        this.contentNodes = this.parent.querySelectorAll('.dls-accordion__content');
-        // convert nodelist to array
-        this.content = Array.prototype.slice.call(this.contentNodes);
+    constructor(element) {
+      this.parent = element;
+      this.contentNodes = this.parent.querySelectorAll('.dls-accordion__content');
+      // convert nodelist to array
+      this.content = Array.prototype.slice.call(this.contentNodes);
 
-        // set panel height on instantiation
-        this.setHeight();
+      // set panel height on instantiation
+      this.setHeight();
 
-        // click handler
-        this.parent.addEventListener('click', event => this.togglePanel(event));
+      // click handler
+      this.parent.addEventListener('click', event => this.togglePanel(event));
 
-        // update panel height on resize
-        window.addEventListener('resize', function () {
-          this.updateHeight()
-        }.bind(this));
-      }
+      // update panel height on resize
+      window.addEventListener('resize', function () {
+        this.updateHeight()
+      }.bind(this));
+    }
 
-      setHeight() {
-        this.parent.classList.add('-init');
-        this.content.forEach(function (panel) {
-          const section = panel.parentElement;
-          const isOpen = section.classList.contains('-open');
-          panel.removeAttribute('style');
+    setHeight() {
+      this.parent.classList.add('-init');
+      this.content.forEach(function (panel) {
+        const section = panel.parentElement;
+        const isOpen = section.classList.contains('-open');
+        panel.removeAttribute('style');
+        section.classList.add('-open');
+        section.classList.remove('-closed');
+        panel.style = `height: ${panel.offsetHeight/16}rem;`; // + 4rem just coz...
+        if (!isOpen) {
+          section.classList.remove('-open');
+          section.classList.add('-closed');
+        }
+      });
+      setTimeout(() => {
+        this.parent.classList.remove('-init');
+      }, 0);
+    }
+
+    updateHeight() {
+      this.setHeight();
+    }
+
+    togglePanel(event) {
+
+      // exit if event has no target
+      if (!event.target) return;
+      // only run if a toggle is targeted
+      if (!event.target.classList.contains('dls-accordion__toggle')) return;
+
+      // get the panel id
+      const panelId = event.target.getAttribute('aria-controls');
+
+      // ***
+      // for unit testing:
+      // togglePanel() returns an array of objects
+      // containing the state attributes
+      // used in the unit tests, eg:
+      //
+      // expect(state[1].ariaHidden).to.equal('true');
+      //
+      // could there be a better way to do this?
+      // ***
+      const state = [];
+
+      this.content.forEach(function (panel) {
+
+        const section = panel.parentElement;
+        const toggle = section.querySelector('.dls-accordion__toggle');
+        const panelState = {
+          id: panel.id
+        };
+
+        // this block is pretty chunky - possibly some refactoring needed
+        if ((panel.id === panelId) && (panel.getAttribute('aria-hidden') === 'true')) {
           section.classList.add('-open');
           section.classList.remove('-closed');
-          panel.style = `height: ${panel.offsetHeight/16}rem;`; // + 4rem just coz...
-          if (!isOpen) {
-            section.classList.remove('-open');
-            section.classList.add('-closed');
-          }
-        });
-        setTimeout(() => {
-          this.parent.classList.remove('-init');
-        }, 0);
-      }
+          panel.setAttribute('aria-hidden', 'false');
+          panel.removeAttribute('tabindex');
+          toggle.setAttribute('aria-expanded', 'true');
 
-      updateHeight() {
-        this.setHeight();
-      }
+          // fix scroll pos to visible viewport
+          const panelMoving = setInterval(() => {
+            if ((panel.offsetTop - 90) <= window.scrollY) {
+              panel.parentElement.parentElement.classList.add('-init');
+              window.scroll(0, panel.offsetTop - 90);
+            }
+          }, 30);
 
-      togglePanel(event) {
+          setTimeout(() => {
+            clearInterval(panelMoving);
+            panel.parentElement.parentElement.classList.remove('-init');
+          }, 300);
 
-        // exit if event has no target
-        if (!event.target) return;
-        // only run if a toggle is targeted
-        if (!event.target.classList.contains('dls-accordion__toggle')) return;
+        } else {
+          section.classList.remove('-open');
+          section.classList.add('-closed');
+          panel.setAttribute('aria-hidden', 'true');
+          panel.setAttribute('tabindex', '-1');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
 
-        // get the panel id
-        const panelId = event.target.getAttribute('aria-controls');
-
-        // ***
-        // for unit testing:
-        // togglePanel() returns an array of objects
-        // containing the state attributes
-        // used in the unit tests, eg:
-        //
-        // expect(state[1].ariaHidden).to.equal('true');
-        //
-        // could there be a better way to do this?
-        // ***
-        const state = [];
-
-        this.content.forEach(function (panel) {
-
-          const section = panel.parentElement;
-          const toggle = section.querySelector('.dls-accordion__toggle');
-          const panelState = {
-            id: panel.id
-          };
-
-          // this block is pretty chunky - possibly some refactoring needed
-          if ((panel.id === panelId) && (panel.getAttribute('aria-hidden') === 'true')) {
-            section.classList.add('-open');
-            section.classList.remove('-closed');
-            panel.setAttribute('aria-hidden', 'false');
-            panel.removeAttribute('tabindex');
-            toggle.setAttribute('aria-expanded', 'true');
-
-            // fix scroll pos to visible viewport
-            const panelMoving = setInterval(() => {
-              if ((panel.offsetTop - 90) <= window.scrollY) {
-                panel.parentElement.parentElement.classList.add('-init');
-                window.scroll(0, panel.offsetTop - 90);
-              }
-            }, 30);
-
-            setTimeout(() => {
-              clearInterval(panelMoving);
-              panel.parentElement.parentElement.classList.remove('-init');
-            }, 300);
-
-          } else {
-            section.classList.remove('-open');
-            section.classList.add('-closed');
-            panel.setAttribute('aria-hidden', 'true');
-            panel.setAttribute('tabindex', '-1');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-
-          // populate state object for unit test
-          panelState.openClass = section.classList.contains('-open');
-          panelState.ariaHidden = panel.getAttribute('aria-hidden');
-          panelState.ariaExpanded = toggle.getAttribute('aria-expanded');
-          panelState.tabIndex = panel.getAttribute('tabindex');
-          state.push(panelState);
-        });
-
-        return state; // for unit test
-      }
-    }
-
-    const accordions = document.querySelectorAll('.dls-accordion');
-
-    if (accordions.length) {
-
-      accordions.forEach((i) => {
-        const accordion = new Accordion(i);
+        // populate state object for unit test
+        panelState.openClass = section.classList.contains('-open');
+        panelState.ariaHidden = panel.getAttribute('aria-hidden');
+        panelState.ariaExpanded = toggle.getAttribute('aria-expanded');
+        panelState.tabIndex = panel.getAttribute('tabindex');
+        state.push(panelState);
       });
 
+      return state; // for unit test
     }
-  </script>
+  }
+
+  const accordions = document.querySelectorAll('.dls-accordion');
+
+  if (accordions.length) {
+
+    accordions.forEach((i) => {
+      const accordion = new Accordion(i);
+    });
+
+  }
+</script>
